@@ -20,11 +20,11 @@
     <nav>
         <!--Navbar -->
         <!--navbar button: Cinephile-->
-        <div class="navbar-btn">
-            <button class="overlay" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">CINEPHILE</button>
+        <div class="navbar-btn gradient-bkgr">
+<!--             <button class="overlay" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">CINEPHILE</button> -->
+            <img class="overlay" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu" src="/images/logo.png" alt="cinephile logo">
         </div>
         
-
         <!--Offcanvas Body-->
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
             <div class="offcanvas-header">
@@ -90,7 +90,9 @@
     <div class="container search-icon">
             <form role="search">
                 <input type="search" id="searchMedia" class="form-control" placeholder="Search..." aria-label="Search">
-                <button type="button" id="searchBtn">Go</button>
+                <button type="button" id="searchBtn">
+                    <img src="/images/search.svg" alt="search logo">
+                </button>
             </form>
             <div class="flex-shrink-0 dropdown">
                 <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -106,8 +108,7 @@
 
     <!--Main-->
     <main>
-        <!--Two big sections: MOVIES & TV SHOWS. Clicking will redirect to the desired section, instead of showing too much to the user.-->
-        <div id="results">
+        <div class="results">
 
         </div>
     </main>

@@ -17,13 +17,11 @@ nav {
         display: flex;
         justify-content: center;
         padding: 5px;
-        button {
+        img {
             padding: 5px 10px;
-            font-family: "Playwrite HR Lijeva", cursive;
-            color: variables.$title-font-color;
-            background-color: transparent;
-            border: none;
             font-size: 30px;
+            width: 300px;
+            height: 300px;
         }
     }
 
@@ -47,6 +45,21 @@ nav {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 5px;
+        input {
+            background-color: variables.$bk-color-search;
+        }
+        input:hover {
+            background-color: variables.$bk-color-search;
+            color: variables.$bk-color-font;
+            font-size: 24px;
+        }
+        button {
+            width: 25%;
+            border-radius: 15px;
+            background-color: variables.$bk-color-searchLogo;
+            border: none;
+            
+        }
     }
 }
 
@@ -54,3 +67,22 @@ nav {
 #results {
     margin-top: 20px;
 }
+
+//gradient background for Logo
+.gradient-bkgr {
+    background: linear-gradient(300deg, #191970, #ffd706, #cc0f23);
+    background-size: 180% 180%;
+    animation: gradient-animation 18s ease infinite;
+}
+
+@keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
