@@ -1,0 +1,56 @@
+//import variables.scss
+@use 'variables.scss';
+
+//Body
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: variables.$body-bk-color;
+    padding: 2px;
+}
+
+//Sidenavbar
+nav {
+    .navbar-btn {
+        display: flex;
+        justify-content: center;
+        padding: 5px;
+        button {
+            padding: 5px 10px;
+            font-family: "Playwrite HR Lijeva", cursive;
+            color: variables.$title-font-color;
+            background-color: transparent;
+            border: none;
+            font-size: 30px;
+        }
+    }
+
+    .membership {
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+        grid-gap: 5px;
+    }
+}
+
+//Search
+.search-icon {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    align-items: center;
+    justify-items: center;
+    background-color: variables.$bk-color-bar;
+    padding: 10px;
+
+    form{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 5px;
+    }
+}
+
+//Display Results
+#results {
+    margin-top: 20px;
+}
