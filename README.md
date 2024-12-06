@@ -1,5 +1,7 @@
 # CINEPHILE - Your ticket to great entertainment 
 
+## Description
+Cinephile is the perfect place to all films lovers but also tv series potato couches. No matter if you are into modern or classic stories, Cinephile got you.
 
 
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/0S8pm_d1)

@@ -1,4 +1,4 @@
- //1.- Sidebar Menu
+ //Sidebar Menu
  //overlay
  document.querySelector('.overlay').addEventListener('click', function() {
     //Sidebar logic goes here
@@ -8,13 +8,56 @@
  document.getElementById("support").onclick = function () {
     //Simulation of a support link 
      alert("Support Team Link");
- }
+ };
 
-//consts
+ //consts
 const displayResults = document.querySelector('.results');
 
- //API
- const apiReadAccessToken = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkM2IyMWVlOTlmNzMyYjFiMzU5NTE4NzM3MDJmNDU4MiIsIm5iZiI6MTczMzE2MzYxNC4zNzIsInN1YiI6IjY3NGRmYTVlNTYyYjAzMGJiNWFkZTVhZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.SN9C63wqn3Bqd9cEYM8R3nOHOsZMpyMipzF4snctfLs';
+  //API: database
+  const apiReadAccessToken = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkM2IyMWVlOTlmNzMyYjFiMzU5NTE4NzM3MDJmNDU4MiIsIm5iZiI6MTczMzE2MzYxNC4zNzIsInN1YiI6IjY3NGRmYTVlNTYyYjAzMGJiNWFkZTVhZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.SN9C63wqn3Bqd9cEYM8R3nOHOsZMpyMipzF4snctfLs';
+
+ //modal
+/* document.querySelectorAll('.modal').forEach(modal => {
+    modal.addEventListener('shown.bs.modal', () => {
+        const iframe = modal.querySelector('.modal-body');
+        if(iframe) {
+            iframe.focus();
+        }
+    });
+}); */
+
+
+ //API: video
+const fetchDisplayVideo = (movieId, modalId) => {
+    const videoUrl = `https://api.themoviedb.org/3/movie/${movieId}/videos`;
+
+    fetch(videoUrl, {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${apiReadAccessToken}`
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        const videoContainer = document.querySelector(`#${modalId} .modal-body`); //.video-container
+        if(data.results.length > 0){
+            const video = data.results.find(v => v.type === 'Trailer');
+            if(video){
+                const videoSrc = `https://www.youtube.com/embed/${video.key}`;
+                videoContainer.innerHTML = `<iframe width="560" height="315" src="${videoSrc}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            } else {
+                videoContainer.innerHTML = '<p>No trailer available</p>';
+            } 
+        } else {
+                videoContainer.innerHTML = '<p>No video available</p>';
+            }
+    })
+    .catch(error => {
+        console.error('Error fetching video:', error);
+        const videoContainer = document.querySelector(`#${modalId} .modal-body`); //.video-container
+        videoContainer.innerHTML = '<p>Error fetching video</p>';
+    });
+};
 
  //Event listeners for the Search Button
  document.getElementById('searchBtn').addEventListener('click', function() {
@@ -54,14 +97,34 @@ const displayResults = document.querySelector('.results');
 
         //movies results
         if(movieData.results.length > 0){
-            movieData.results.forEach(movie => {
+            movieData.results.forEach((movie, index) => {
                 const div = document.createElement('div');
                 const imageUrl = movie.poster_path ? `https://image.tmdb.org/t/p/w200${movie.poster_path}` : `placeholder.png`;
+                const modalId = `modal${index + 1}`;
                 div.innerHTML = `
                 <div class="results">
-                    <img src="${imageUrl}" alt="${movie.title}" width="200">
-                    <h2>${movie.title}</h2>
-                    <p>Popularity Vote: ${movie.popularity}</p>
+                    <div class="card">
+                        <img class="card-img" src="${imageUrl}" alt="${movie.title}" width="200">
+                        <div class="card-body">
+                            <h2 class="card-title">${movie.title}</h2>
+                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#${modalId}" onclick="fetchDisplayVideo(${movie.id}, '${modalId}')">
+                                    Watch Trailer
+                                </button>
+                                <div class="modal fade" id="${modalId}" tabindex="-1" aria-labelledby="${modalId}Label" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="${modalId}Label">${movie.title} - Trailer</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
                 </div>            
                 `;
                 resultsContainer.appendChild(div);
@@ -77,8 +140,12 @@ const displayResults = document.querySelector('.results');
                 const imageUrl = tvShow.poster_path ? `https://image.tmdb.org/t/p/w200${tvShow.poster_path}` : `placeholder.png`;
                 div.innerHTML =  `
                 <div class="results">
-                    <img src="${imageUrl}" alt="${tvShow.name}" width="200">
-                    <h2>${tvShow.name}</h2>
+                    <div class="card">
+                        <img src="${imageUrl}" alt="${tvShow.name}" width="200">
+                        <div class="card-body">
+                            <h2 class="card-title">${tvShow.name}</h2>
+                        </div>
+                    </div>
                 </div>
                 `;
                 resultsContainer.appendChild(div);

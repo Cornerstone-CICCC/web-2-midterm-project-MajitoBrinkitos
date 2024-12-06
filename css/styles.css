@@ -1,11 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Baskervville:ital@0;1&family=Playwrite+HR+Lijeva:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+/*Extra small devices*/
+@media only screen and (max-width: 600px) {
+  /* Styles for extra small devices */
+}
+/*Small devices*/
+@media only screen and (min-width: 600px) {
+  /* Styles for small devices */
+}
+/*Medium devices*/
+@media only screen and (min-width: 768px) {
+  /* Styles for medium devices */
+}
+/*Large devices*/
+@media only screen and (min-width: 992px) {
+  /* Styles for large devices */
+}
+/*Extra large devices*/
+@media only screen and (min-width: 1200px) {
+  /* Styles for extra large devices */
+}
 * {
   box-sizing: border-box;
 }
 
 body {
   background-color: #000;
-  padding: 2px;
 }
 
 nav .navbar-btn {
@@ -14,7 +33,6 @@ nav .navbar-btn {
   padding: 5px;
 }
 nav .navbar-btn img {
-  padding: 5px 10px;
   font-size: 30px;
   width: 300px;
   height: 300px;
@@ -35,7 +53,7 @@ nav .membership {
 }
 .search-icon form {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr auto;
   grid-gap: 5px;
 }
 .search-icon form input {
@@ -53,8 +71,74 @@ nav .membership {
   border: none;
 }
 
-#results {
-  margin-top: 20px;
+.results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+.results .card {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  max-width: 300px;
+  height: 550px;
+  padding: 5px;
+  border: 1px solid white;
+  background-color: whitesmoke;
+}
+.results .card img {
+  width: 100%;
+  max-width: 220px;
+  height: 350px;
+  border-radius: 5px;
+}
+.results .card-img {
+  width: 100%;
+  height: auto;
+}
+.results .card-body {
+  padding: 5px;
+  text-align: center;
+}
+.results .card-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.results .card-text {
+  margin-bottom: 15px;
+  color: #000;
+}
+.results .btn {
+  display: inline-block;
+  background-color: #cc0f23;
+}
+.results .btn:hover {
+  background-color: #0691d1;
+  color: white;
+}
+
+.modal-body iframe {
+  width: 100%;
+  max-width: 650px;
+}
+
+.carousel-inner .carousel-item img {
+  width: 100%;
+  max-width: 650px;
+  height: 450px;
+  margin-right: 25%;
+  margin-left: 25%;
+}
+.carousel-inner .carousel-item .carousel-caption button {
+  background-color: #cc0f23;
+}
+.carousel-inner .carousel-item .modal-header {
+  background-color: #000;
+  padding-left: 7%;
+  border: 2px solid black;
 }
 
 .gradient-bkgr {

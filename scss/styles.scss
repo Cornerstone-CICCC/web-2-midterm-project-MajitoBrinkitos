@@ -1,5 +1,6 @@
 //import variables.scss
 @use 'variables.scss';
+@use 'queries.scss';
 
 //Body
 * {
@@ -8,7 +9,6 @@
 
 body {
     background-color: variables.$body-bk-color;
-    padding: 2px;
 }
 
 //Sidenavbar
@@ -18,7 +18,6 @@ nav {
         justify-content: center;
         padding: 5px;
         img {
-            padding: 5px 10px;
             font-size: 30px;
             width: 300px;
             height: 300px;
@@ -43,29 +42,105 @@ nav {
 
     form{
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr auto;
         grid-gap: 5px;
         input {
             background-color: variables.$bk-color-search;
+            &:hover {
+                background-color: variables.$bk-color-search;
+                color: variables.$bk-color-font;
+                font-size: 24px;
+            }
         }
-        input:hover {
-            background-color: variables.$bk-color-search;
-            color: variables.$bk-color-font;
-            font-size: 24px;
-        }
+
         button {
             width: 25%;
             border-radius: 15px;
             background-color: variables.$bk-color-searchLogo;
             border: none;
-            
         }
     }
 }
 
 //Display Results
-#results {
-    margin-top: 20px;
+.results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-items: center;
+    gap: 20px;
+    padding: 20px;
+    .card{
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        width: 100%;
+        max-width: 300px;
+        height: 550px;
+        padding: 5px;
+        border: 1px solid white;
+        background-color: whitesmoke;
+        img {
+            width: 100%;
+            max-width: 220px;
+            height: 350px;
+            border-radius: 5px;
+        }
+    }
+    .card-img {
+        width: 100%;
+        height: auto;
+    }
+    .card-body{
+        padding: 5px;
+        text-align: center;
+    }
+    .card-title{
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    .card-text{
+        margin-bottom: 15px;
+        color: #000;
+    }
+
+    .btn{
+        display: inline-block;
+        background-color: variables.$btn-bk-color;
+        &:hover{
+            background-color: variables.$btn-bk-color-hover;
+            color: variables.$bk-color-font;
+        }
+    }
+}
+
+.modal-body {
+    iframe {
+        width: 100%;
+        max-width: 650px;
+    }
+}
+
+//Modal
+.carousel-inner {
+    .carousel-item {
+        img {
+            width: 100%;
+            max-width: 650px;
+            height: 450px;
+            margin-right: 25%;
+            margin-left: 25%;
+        }
+        .carousel-caption {
+            button {
+                background-color: variables.$btn-bk-color;
+            }
+        }
+    .modal-header {
+        background-color: variables.$body-bk-color;
+        padding-left: 7%;
+        border: 2px solid black;
+    }
+    }
 }
 
 //gradient background for Logo

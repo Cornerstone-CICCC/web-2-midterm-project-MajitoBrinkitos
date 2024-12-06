@@ -91,7 +91,9 @@
             <form role="search">
                 <input type="search" id="searchMedia" class="form-control" placeholder="Search..." aria-label="Search">
                 <button type="button" id="searchBtn">
-                    <img src="/images/search.svg" alt="search logo">
+                    <a href="#main-view">
+                        <img src="/images/search.svg" alt="search logo">
+                    </a>
                 </button>
             </form>
             <div class="flex-shrink-0 dropdown">
@@ -104,12 +106,102 @@
     <!--Header-->
     <header>
         <!--Modal showing the latest movies and tv shows-->
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <!--carousel-item 1-->
+                <div class="carousel-item active">
+                    <img src="/images/movie1.jpg" class="d-block w-50" alt="movie 1">
+                    <div class="carousel-caption d-none d-md-block text-end">
+                        <h5>Great entertainment one click away</h5>
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#myModal1">Watch Trailer Now
+                        </button>
+                        <!--Modal-->
+                        <div class="modal fade" id="myModal1" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title" id="myModal1Label"><h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <div class="modal-body">
+                                                <iframe width="400" height="315" src="https://www.youtube.com/embed/f19gfOMZTtg?si=8leu3auPvI6h6cZZ" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!--end modal-->
+                    </div>
+                </div>
+                <!--carousel-item 2-->
+                <div class="carousel-item">
+                    <img src="/images/movie2.jpg" class="d-block w-50" alt="movie 2">
+                    <div class="carousel-caption d-none d-md-block text-end">
+                        <h5>Cinephile and Chill</h5>
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#myModal2">Watch Trailer Now
+                        </button>
+                        <!--Modal-->
+                        <div class="modal fade" id="myModal2" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title" id="myModal2Label"><h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <div class="modal-body">
+                                                <iframe width="400" height="315" src="https://www.youtube.com/embed/x0XDEhP4MQs?si=e952W5F_7L5QhsRJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!--end modal-->
+                    </div>
+                </div>
+                <!--carousel item 3-->
+                <div class="carousel-item">
+                    <img src="/images/movie3.jpg" class="d-block w-50" alt="movie 3">
+                    <div class="carousel-caption d-none d-md-block text-end">
+                        <h5>Xmas Cinephile Season is here</h5>
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#myModal3">Watch Now
+                        </button>
+                        <!--Modal-->
+                        <div class="modal fade" id="myModal3" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title" id="myModal3Label"><h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <div class="modal-body">
+                                                <iframe width="420" height="315" src="https://www.youtube.com/embed/7tk-WZSqIGQ?si=zd6LRqLExANao34I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!--end modal-->
+                    </div>
+                </div>
+            </div>
+            <!--Buttons-->
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
     </header>
 
     <!--Main-->
-    <main>
+    <main id="main-view">
         <div class="results">
+            <div class="modal-body">
 
+            </div>
         </div>
     </main>
 
