@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,27 +13,77 @@
 
     <!--CSS-->
     <link rel="stylesheet" href="/css/styles.css">
+
+    <!--Dark/Light Mode-->
 </head>
 <body>
+    <!--dark/light mode-->
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+        <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center show" id="bd-theme" type="button" aria-expanded="true" data-bs-toggle="dropdown" aria-label="Toggle theme (light)">
+            <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
+                <use href="#sun-fill"></use>
+            </svg>
+            <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text" data-popper-placement="top-end">
+            <!--Light-->
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="light" aria-pressed="true">
+                    <svg class="bi me-2 opacity-50" width="1em" height="1em">
+                        <use href="#sun-fill"></use>
+                    </svg>
+                    " Light "
+                    <svg class="bi ms-auto d-none" width="1em" height="1em">
+                        <use href="#check2"></use>
+                    </svg>
+                </button>
+            </li>
+            <!--Dark-->
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+                    <svg class="bi me-2 opacity-50" width="1em" height="1em">
+                        <use href="#moon-stars-fill"></use>
+                    </svg>
+                    " Dark "
+                    <svg class="bi ms-auto d-none" width="1em" height="1em">
+                        <use href="#check2"></use>
+                    </svg>
+                </button>
+            </li>
+            <!--Auto-->
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
+                    <svg class="bi me-2 opacity-50" width="1em" height="1em">
+                        <use href="#circle-half"></use>
+                    </svg>
+                    " Auto "
+                    <svg class="bi ms-auto d-none" width="1em" height="1em">
+                        <use href="#check2"></use>
+                    </svg>
+                </button>
+            </li>
+        </ul>
+    </div>
+
     <!--Navigation Bar-->
     <!--Navbar-->
     <nav>
         <!--Navbar -->
         <!--navbar button: Cinephile-->
         <div class="navbar-btn gradient-bkgr">
-<!--             <button class="overlay" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">CINEPHILE</button> -->
             <img class="overlay" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu" src="/images/logo.png" alt="cinephile logo">
         </div>
         
         <!--Offcanvas Body-->
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasMenuLabel">Cinephile</h5>
+                <h5 class="offcanvas-title" id="offcanvasMenuLabel">Welcome</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
+
             <div class="offcanvas-body">
                 <div class="offcanvas-text">
-                    LOGO
+                    <img class="overlay" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu" src="/images/logo.png" alt="cinephile logo">
                 </div>
 
                 <hr> <!--Divider-->
@@ -42,19 +92,19 @@
                 <menu>
                     <ul>
                         <!--Home-->
-                        <li class="nav-item">
+                        <li class="nav-item gradient-navbar">
                             <a aria-current="page" href="/index.html">Home</a>
                         </li>
                         <!--New Releases-->
-                        <li class="nav-item">
+                        <li class="nav-item gradient-navbar">
                             <a aria-current="page" href="#">New Releases</a>
                         </li>
                         <!--Categories-->
-                        <li class="nav-item">
+                        <li class="nav-item gradient-navbar">
                             <a aria-current="page" href="#">Categories</a>
                         </li>
                         <!--TV series-->
-                        <li class="nav-item">
+                        <li class="nav-item gradient-navbar">
                             <a aria-current="page" href="#">TV Series</a>
                         </li>
                     </ul>
@@ -64,22 +114,20 @@
 
                 <!--Login/Signup-->
                 <div class="container membership">
-                    <button>
+                    <button class="gradient-navbar">
                         <a href="#">LogIn</a>
                         <!--alert to simulate a login session-->
                     </button>
     
-                    <button>
+                    <button class="gradient-navbar">
                         <a href="#">SignUp</a>
                         <!--alert to simulate a signup session-->
                     </button>
                 </div>
 
-                <hr> <!--Divider-->
-
                 <!--Support-->
                 <p id="support">
-                    <a href="#">Support</a>
+                    <a href="#"><i class="bi bi-info-circle-fill"></i>Support</a>
                 </p>
             </div>
         </div>
@@ -96,10 +144,28 @@
                     </a>
                 </button>
             </form>
-            <div class="flex-shrink-0 dropdown">
-                <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <!--User icon-->
+            <div class="dropdown">
+                <a href="#" class="d-block dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="/images/user.svg" alt="user" width="42" height="42" class="rounded-circle">
                 </a>
+                <ul class="dropdown-menu" data-popper-placement="bottom-menu">
+                    <li>
+                        <a class="dropdown-item" href="#">Account</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">Profile</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">Settings</a>
+                    </li>
+                    <li>
+                       <hr class="dropdown-divider"> 
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">Sign out</a>
+                    </li>
+                </ul>
             </div>
     </div>
     
@@ -116,8 +182,7 @@
                 <!--carousel-item 1-->
                 <div class="carousel-item active">
                     <img src="/images/movie1.jpg" class="d-block w-50" alt="movie 1">
-                    <div class="carousel-caption d-none d-md-block text-end">
-                        <h5>Great entertainment one click away</h5>
+                    <div class="carousel-caption d-none d-sm-block text-end">
                         <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#myModal1">Watch Trailer Now
                         </button>
                         <!--Modal-->
@@ -139,8 +204,7 @@
                 <!--carousel-item 2-->
                 <div class="carousel-item">
                     <img src="/images/movie2.jpg" class="d-block w-50" alt="movie 2">
-                    <div class="carousel-caption d-none d-md-block text-end">
-                        <h5>Cinephile and Chill</h5>
+                    <div class="carousel-caption d-none d-sm-block text-end">
                         <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#myModal2">Watch Trailer Now
                         </button>
                         <!--Modal-->
@@ -162,8 +226,7 @@
                 <!--carousel item 3-->
                 <div class="carousel-item">
                     <img src="/images/movie3.jpg" class="d-block w-50" alt="movie 3">
-                    <div class="carousel-caption d-none d-md-block text-end">
-                        <h5>Xmas Cinephile Season is here</h5>
+                    <div class="carousel-caption d-none d-sm-block text-end">
                         <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#myModal3">Watch Now
                         </button>
                         <!--Modal-->
