@@ -57,6 +57,7 @@
   --color-search-font: #000000;
   --bk-btn-search-logo: rgb(197, 200, 200);
   --color-btn-search-logo: black;
+  --color-font-user-menu: black;
   --bk-color-modeBtn: black;
   --color-modeBtn: whitesmoke;
 }
@@ -73,6 +74,7 @@
   --color-search-font: #000000;
   --bk-btn-search-logo: black;
   --color-btn-search-logo: white;
+  --color-font-user-menu: rgb(255, 254, 254);
   --bk-color-modeBtn: whitesmoke;
   --color-modeBtn: rgb(0, 0, 0);
 }
@@ -219,7 +221,7 @@ nav #support a {
 }
 .search-icon .dropdown ul a {
   text-decoration: none;
-  color: black;
+  color: var(--color-font-user-menu);
 }
 
 .results {

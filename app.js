@@ -177,3 +177,22 @@ const fetchDisplayVideo = (movieId, modalId) => {
         resultsContainer.innerHTML = '<p>An error has occurred. Try later.</p>'
    });
  });
+
+
+ //New Releases - Rated movies
+ const fetchRatedMovieData = (account_id) => {
+
+    const ratedMoviesUrl = `https://api.themoviedb.org/3/account/${account_id}/rated/movies`;
+
+    fetch(ratedMoviesUrl, {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${apiReadAccessToken}`
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        const resultsContainer = document.querySelector('.results');
+    })
+ }
+

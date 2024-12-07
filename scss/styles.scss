@@ -26,6 +26,8 @@
     //search bar logo
     --bk-btn-search-logo: rgb(197, 200, 200);
     --color-btn-search-logo: black;
+    //user
+    --color-font-user-menu: black;
     //mode button
     --bk-color-modeBtn: black;
     --color-modeBtn: whitesmoke;
@@ -48,6 +50,8 @@
     //search bar logo
     --bk-btn-search-logo: black;
     --color-btn-search-logo: white;
+    //user
+    --color-font-user-menu: rgb(255, 254, 254);
     //mode button
     --bk-color-modeBtn: whitesmoke;
     --color-modeBtn: rgb(0, 0, 0);
@@ -216,7 +220,7 @@ nav {
             inset: 0px 0px auto auto;
             a {
                 text-decoration: none;
-                color: black
+                color: var(--color-font-user-menu);
             }
         }
     }
