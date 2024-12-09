@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Baskervville:ital@0;1&family=Playwrite+HR+Lijeva:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+/*Extra small devices*/
+@media (max-width: 575.98px) {
+  /* Styles for extra small devices */
+  .carousel-inner .carousel-item img {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+  .carousel-inner .carousel-item .carousel-caption button {
+    font-size: 14px;
+    padding: 10px 15px;
+    display: block;
+    background-color: #cc0f23;
+  }
+}
+/*Small devices*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+  /* Styles for small devices */
+  .carousel-inner .carousel-item img {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+  .carousel-inner .carousel-item .carousel-caption button {
+    background-color: #cc0f23;
+    font-size: 16px;
+    padding: 12px 18px;
+    display: block;
+  }
+}
+/*Medium devices*/
+@media (min-width: 768px) {
+  /* Styles for medium devices */
+}
+/*Large devices*/
+@media (min-width: 992px) {
+  /* Styles for large devices */
+}
+/*Extra large devices*/
+@media only screen and (min-width: 1200px) {
+  /* Styles for extra large devices */
+}
+
+/*# sourceMappingURL=queries.css.map */

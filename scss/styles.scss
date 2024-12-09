@@ -1,0 +1,455 @@
+//import variables.scss
+@use 'variables.scss';
+@use 'queries.scss';
+
+
+//Body
+* {
+    box-sizing: border-box;
+}
+
+//dark-light
+:root {
+    //body
+    --background-color: #ffffff;
+    --text-color: #000000;
+    //slide btn
+    --btn-background-color: rgb(204, 218, 218);;
+    --btn-text-color: #000000;
+    //card
+    --card-background-color: rgb(93, 95, 97);
+    --card-title-color: #fafafa;
+    //search bar
+    --bk-color-search-bar: whitesmoke;
+    --bk-color-search: #ffaa00;
+    --color-search-font: #000000;
+    //search bar logo
+    --bk-btn-search-logo: rgb(197, 200, 200);
+    --color-btn-search-logo: black;
+    //user
+    --color-font-user-menu: black;
+    //mode button
+    --bk-color-modeBtn: black;
+    --color-modeBtn: whitesmoke;
+}
+
+[data-bs-theme="dark"] {
+    //body
+    --background-color: #000;
+    --text-color: #ffffff;
+    //slide btn
+    --btn-background-color: #ffaa00;
+    --btn-text-color: #000;
+    //card
+    --card-background-color: rgb(204, 218, 218);
+    --card-title-color: #000;
+    //search bar
+    --bk-color-search-bar: #000;
+    --bk-color-search: #ffaa00;
+    --color-search-font: #000000;
+    //search bar logo
+    --bk-btn-search-logo: black;
+    --color-btn-search-logo: white;
+    //user
+    --color-font-user-menu: rgb(255, 254, 254);
+    //mode button
+    --bk-color-modeBtn: whitesmoke;
+    --color-modeBtn: rgb(0, 0, 0);
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+//dark-light button
+    div.dropdown {
+        z-index: 1500;
+        .btn-bd-primary {
+            background-color: #ffaa00;
+        }
+        .dropdown-menu {
+            position: absolute;
+            inset: auto 0px 0px auto;
+            margin: 0px;
+            transform: translate3d(0px, -44px, 0px);
+                li{
+                    button{
+                        background-color: var(--bk-color-modeBtn);
+                        color: var(--color-modeBtn);
+                    }
+                }
+
+        }
+    }
+
+
+
+//Sidenavbar
+nav {
+    .navbar-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        img {
+            font-size: 30px;
+            width: 300px;
+            height: 300px;
+        }
+    }
+
+    .offcanvas {
+        background-color: variables.$body-bk-color;
+        color: whitesmoke;
+        .offcanvas-header {
+            display: grid;
+            grid-template-columns: 1fr;
+            h5 {
+                font-size: 30px;
+                text-align: center;
+            }
+        }
+
+        .offcanvas-body {
+            .offcanvas-text {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img {
+                    width: 200px;
+                    height: 200px;
+                }
+            }
+        }
+    }
+
+    //menu
+    menu {
+        padding: 20px;
+        ul {
+            padding: 2rem;
+            li {
+                justify-content: center;
+                align-items: center;
+                list-style: none;
+                padding: 20px;
+                margin: 2px;
+                border-radius: 15px;
+                font-size: 20px;
+                text-align: center;
+                font-weight: bold;
+                a{
+                    color: variables.$color-li-font;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    .membership {
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+        grid-gap: 5px;
+        button {
+            border-radius: 15px;
+            a {
+                color: variables.$color-li-font;
+                text-decoration: none;
+            }
+        }
+    }
+
+    //support link
+    #support {
+        margin-top: 35px;
+        background-color: #d1cfb5;
+        border-radius: 15px;
+        text-align: center;
+        a {
+            color: variables.$color-li-font;
+            text-decoration: none;
+        }
+    }
+}
+
+
+//Search
+.search-icon {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    align-items: center;
+    justify-items: center;
+    //dark-light mode
+    background-color: var(--bk-color-search-bar);
+    padding: 10px;
+
+    form{
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-gap: 5px;
+        input {
+            background-color: variables.$bk-color-search;
+            color: var(--color-search-font);
+            &:hover {
+                background-color: variables.$bk-color-search;
+                color: var(--color-search-font);
+                font-size: 24px;
+            }
+        }
+        button {
+            width: 100%;
+            border-radius: 15px;
+            border: none;
+            background-color: var(--bk-btn-search-logo);
+            color: var(--color-btn-search-logo);
+        }
+    }
+
+    //user dropdown
+    .dropdown{
+        text-align: end;
+        .dropdown-toggle {
+            color: white;
+        }
+        ul {
+            font-size: medium;
+            position: absolute;
+            margin: 0;
+            transform: translate3d(0px, 34px, 0px);
+            inset: 0px 0px auto auto;
+            a {
+                text-decoration: none;
+                color: var(--color-font-user-menu);
+            }
+        }
+    }
+}
+
+//Display Results
+.results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-items: center;
+    gap: 20px;
+    padding: 20px;
+    .card{
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        width: 100%;
+        max-width: 300px;
+        height: 550px;
+        padding: 5px;
+        border: 1px solid white;
+        //dark-light mode
+        background-color: var(--card-background-color);
+        img {
+            width: 100%;
+            max-width: 220px;
+            height: 350px;
+            border-radius: 5px;
+        }
+    }
+    .card-img {
+        width: 100%;
+        height: auto;
+    }
+    .card-body{
+        padding: 5px;
+        text-align: center;
+    }
+    .card-title{
+        font-size: 18px;
+        margin-bottom: 10px;
+        //dark-light mode
+        color: var(--card-title-color);
+    }
+    .card-text{
+        margin-bottom: 15px;
+        color: #000;
+    }
+
+    .btn{
+        display: inline-block;
+        background-color: variables.$btn-bk-color;
+        &:hover{
+            background-color: variables.$btn-bk-color-hover;
+            color: variables.$bk-color-font;
+        }
+    }
+}
+
+//Rated Movies
+.container {
+    .results {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        justify-items: center;
+        gap: 20px;
+        padding: 20px;
+        .movie-card{
+            display: inline-block; 
+            margin: 10px; 
+            padding: 10px; 
+            border: 1px solid black;
+        }
+        .movie-card{
+            display: block;
+            margin-bottom: 10px;
+        }
+        .movie-card{
+            h2{
+                font-size: 18px; 
+                margin: 10px 0;
+            }
+            p{
+                margin: 5px 0;
+            }
+        }
+    }
+}
+
+
+.modal-body {
+    iframe {
+        width: 100%;
+        max-width: 650px;
+    }
+}
+
+//Carousel - Modal
+.carousel-inner {
+    .carousel-item {
+        img {
+            width: 100%;
+            max-width: 600px;
+            height: 100%;
+            max-height: 350px;
+            margin: 0 auto;
+        }
+        .carousel-caption {
+            position: absolute;
+            left: 50%;
+            text-align: center;
+            button {
+                //dark-light mode
+                background-color: var(--btn-background-color);
+                color: var(--btn-text-color);
+                font-size: 16px;
+                padding: 12px 20px;
+                display: inline-block;
+            }
+        }
+    .modal-header {
+        background-color: variables.$body-bk-color;
+        padding-left: 7%;
+        border: 2px solid black;
+    }
+    }
+}
+
+//Gradients
+//gradient background for Logo
+.gradient-bkgr {
+    background: linear-gradient(190deg, #191970, #ffd706, #cc0f23);
+    background-size: 180% 180%;
+    animation: gradient-animation 18s ease infinite;
+}
+
+  //gradient background for side navbar
+  .gradient-navbar {
+    background: linear-gradient(270deg, #f43a02, #ffd706, #fc8107);
+    background-size: 180% 180%;
+    animation: gradient-animation 18s ease infinite;
+  }
+
+@keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+
+  //Media Queries
+  /*Extra small devices*/
+@media (max-width: 575.98px){
+    /* Styles for extra small devices */
+    //modal
+    .carousel-inner {
+        .carousel-item {
+            h5{
+                font-size: 10px;
+            }
+            img{
+                width: 100%;
+                height: auto;
+                margin: 0 auto;
+            }
+            .carousel-caption {
+                position: absolute;
+                bottom: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                text-align: center;
+                width: 100%;
+                button {
+                    background-color: variables.$btn-bk-color;
+                    font-size: 12px;
+                    padding: 5px 10px;
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
+
+/*Small devices*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+    /* Styles for small devices */
+
+    //modal
+    .carousel-inner {
+        .carousel-item {
+            h5{
+                font-size: 10px;
+            }
+            img{
+                width: 100%;
+                height: auto;
+                margin: 0 auto;
+            }
+            .carousel-caption {
+                left: 70%;
+                button {
+                    background-color: variables.$btn-bk-color;
+                    font-size: 10px;
+                    padding: 5px 10px;
+                    left: 70%;
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+/*Medium devices*/
+@media (min-width: 768px) {
+    /* Styles for medium devices */
+}
+
+/*Large devices*/
+@media (min-width: 992px) {
+    /* Styles for large devices */
+}
+
+/*Extra large devices*/
+@media only screen and (min-width: 1200px) {
+    /* Styles for extra large devices */
+}
