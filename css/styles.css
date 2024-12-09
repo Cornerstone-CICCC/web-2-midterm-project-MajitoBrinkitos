@@ -108,7 +108,7 @@ nav .navbar-btn {
   padding: 5px;
 }
 nav .navbar-btn img {
-  font-size: 30px;
+  font-size: 25px;
   width: 300px;
   height: 300px;
 }
@@ -130,8 +130,8 @@ nav .offcanvas .offcanvas-body .offcanvas-text {
   align-items: center;
 }
 nav .offcanvas .offcanvas-body .offcanvas-text img {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
 }
 nav menu {
   padding: 20px;
@@ -144,7 +144,7 @@ nav menu ul li {
   align-items: center;
   list-style: none;
   padding: 20px;
-  margin: 2px;
+  margin: 1px;
   border-radius: 15px;
   font-size: 20px;
   text-align: center;
@@ -349,12 +349,12 @@ footer a:visited { /*when a webpage has being visited*/
 }
 
 footer a:hover {
-  color: rgb(255, 255, 255);
+  color: rgb(244, 205, 10);
   font-family: "Ultra", serif;
 }
 
 footer a:active { /*when a link has being clicked*/
-  color: #EFE3CC;
+  color: #10defa;
   text-decoration: none;
 }
 
