@@ -274,6 +274,31 @@ nav #support a {
   color: #000;
 }
 
+.container .results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+.container .results .movie-card {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+}
+.container .results .movie-card {
+  display: block;
+  margin-bottom: 10px;
+}
+.container .results .movie-card h2 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+.container .results .movie-card p {
+  margin: 5px 0;
+}
+
 .modal-body iframe {
   width: 100%;
   max-width: 650px;

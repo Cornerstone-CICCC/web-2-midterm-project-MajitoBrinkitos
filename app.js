@@ -37,11 +37,25 @@
      alert("Support Team Link");
  };
 
+ //login
+ document.getElementById("login").onclick = function () {
+    //Simulation of a login link
+    alert("Successful Login");
+ };
+
+ //signup
+ document.getElementById("signup").onclick = function () {
+    //Simulation of a signup link
+    alert("Successful Signup");
+ }
+
  //consts
 const displayResults = document.querySelector('.results');
 
   //API: database
   const apiReadAccessToken = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkM2IyMWVlOTlmNzMyYjFiMzU5NTE4NzM3MDJmNDU4MiIsIm5iZiI6MTczMzE2MzYxNC4zNzIsInN1YiI6IjY3NGRmYTVlNTYyYjAzMGJiNWFkZTVhZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.SN9C63wqn3Bqd9cEYM8R3nOHOsZMpyMipzF4snctfLs';
+
+  const apiKey = 'd3b21ee99f732b1b35951873702f4582';
 
 
  //API: video
@@ -180,19 +194,85 @@ const fetchDisplayVideo = (movieId, modalId) => {
 
 
  //New Releases - Rated movies
- const fetchRatedMovieData = (account_id) => {
-
-    const ratedMoviesUrl = `https://api.themoviedb.org/3/account/${account_id}/rated/movies`;
-
-    fetch(ratedMoviesUrl, {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${apiReadAccessToken}`
+ const fetchTopRatedMovies = () => { 
+    const topRatedMoviesUrl = 'https://api.themoviedb.org/3/movie/top_rated';
+    
+    fetch(topRatedMoviesUrl, { 
+        method: 'GET', 
+        headers: { 
+            'Authorization': `Bearer ${apiReadAccessToken}` 
         }
-    })
-    .then(response => response.json())
-    .then(data => {
-        const resultsContainer = document.querySelector('.results');
-    })
- }
+     })
+      .then(response => response.json())
+    .then(data => { 
+        const resultsContainer = document.querySelector('.container .results');
+         resultsContainer.innerHTML = ''; 
+         
+         if (data.results.length > 0) { 
+            data.results.forEach(movie => { 
+                const div = document.createElement('div'); 
+                const imageUrl = movie.poster_path ? `https://image.tmdb.org/t/p/w200${movie.poster_path}` : 'placeholder.png'; 
+                div.classList.add('movie-card'); 
+                div.innerHTML = ` 
+                <img src="${imageUrl}" alt="${movie.title}" width="200"> 
+                <h2>${movie.title}</h2> 
+                <p>Rating: ${movie.vote_average}</p> 
+                <p>Release Date: ${movie.release_date}</p> 
+                `;
+                 resultsContainer.appendChild(div); 
+                }); 
+            } else { 
+                resultsContainer.innerHTML = '<p>No top-rated movies found.</p>'; 
+            }
+        }) 
+        .catch(error => { 
+            console.error('Error fetching top-rated movies:', error); 
+            const resultsContainer = document.querySelector('.container .results'); 
+            resultsContainer.innerHTML = '<p>An error has occurred. Please try again later.</p>'; 
+        }); 
+    }; // Fetch and display the top-rated movies on page load 
+    document.addEventListener('DOMContentLoaded', () => { 
+        fetchTopRatedMovies(); 
+    });
 
+//TV series
+const fetchTvSeries = () => { 
+    const tvSeries = 'https://api.themoviedb.org/3/tv/popular';
+    
+    fetch(tvSeries, { 
+        method: 'GET', 
+        headers: { 
+            'Authorization': `Bearer ${apiReadAccessToken}` 
+        }
+     })
+      .then(response => response.json())
+    .then(data => { 
+        const resultsContainer = document.querySelector('.container .results');
+         resultsContainer.innerHTML = ''; 
+         
+         if (data.results.length > 0) { 
+            data.results.forEach(series => { 
+                const div = document.createElement('div'); 
+                const imageUrl = series.poster_path ? `https://image.tmdb.org/t/p/w200${series.poster_path}` : 'placeholder.png'; 
+                div.classList.add('series-card'); 
+                div.innerHTML = ` 
+                <img src="${imageUrl}" alt="${series.title}" width="200"> 
+                <h2>${series.title}</h2> 
+                <p>Rating: ${series.vote_average}</p> 
+                <p>Release Date: ${series.first_air_date}</p> 
+                `;
+                 resultsContainer.appendChild(div); 
+                }); 
+            } else { 
+                resultsContainer.innerHTML = '<p>No tv series found.</p>'; 
+            }
+        }) 
+        .catch(error => { 
+            console.error('Error fetching tv series:', error); 
+            const resultsContainer = document.querySelector('.container .results'); 
+            resultsContainer.innerHTML = '<p>An error has occurred. Please try again later.</p>'; 
+        }); 
+    }; // Fetch and display the top-rated movies on page load 
+    document.addEventListener('DOMContentLoaded', () => { 
+        fetchTvSeries(); 
+    });

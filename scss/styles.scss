@@ -280,6 +280,37 @@ nav {
     }
 }
 
+//Rated Movies
+.container {
+    .results {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        justify-items: center;
+        gap: 20px;
+        padding: 20px;
+        .movie-card{
+            display: inline-block; 
+            margin: 10px; 
+            padding: 10px; 
+            border: 1px solid black;
+        }
+        .movie-card{
+            display: block;
+            margin-bottom: 10px;
+        }
+        .movie-card{
+            h2{
+                font-size: 18px; 
+                margin: 10px 0;
+            }
+            p{
+                margin: 5px 0;
+            }
+        }
+    }
+}
+
+
 .modal-body {
     iframe {
         width: 100%;
