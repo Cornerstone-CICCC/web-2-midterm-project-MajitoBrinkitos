@@ -14,14 +14,14 @@
     --background-color: #ffffff;
     --text-color: #000000;
     //slide btn
-    --btn-background-color: rgb(204, 218, 218);;
+    --btn-background-color: rgb(204, 218, 218);
     --btn-text-color: #000000;
     //card
     --card-background-color: rgb(93, 95, 97);
     --card-title-color: #fafafa;
     //search bar
     --bk-color-search-bar: whitesmoke;
-    --bk-color-search: #ffaa00;
+    --bk-color-search: rgb(204, 218, 218);
     --color-search-font: #000000;
     //search bar logo
     --bk-btn-search-logo: rgb(197, 200, 200);
@@ -38,15 +38,14 @@
     --background-color: #000;
     --text-color: #ffffff;
     //slide btn
-    --btn-background-color: #ffaa00;
-    --btn-text-color: #000;
+    --btn-background-color: rgb(204, 218, 218);
     //card
-    --card-background-color: rgb(204, 218, 218);
+    --card-background-color: #cddbdb;
     --card-title-color: #000;
     //search bar
     --bk-color-search-bar: #000;
-    --bk-color-search: #ffaa00;
-    --color-search-font: #000000;
+    --bk-color-search: #cddbdb;
+    --color-search-font: #000;
     //search bar logo
     --bk-btn-search-logo: black;
     --color-btn-search-logo: white;
@@ -66,7 +65,7 @@ body {
     div.dropdown {
         z-index: 1500;
         .btn-bd-primary {
-            background-color: #ffaa00;
+            background-color: #E4580B;
         }
         .dropdown-menu {
             position: absolute;
@@ -189,10 +188,10 @@ nav {
         grid-template-columns: 1fr auto;
         grid-gap: 5px;
         input {
-            background-color: variables.$bk-color-search;
+            background-color: var(--bk-color-search);
             color: var(--color-search-font);
             &:hover {
-                background-color: variables.$bk-color-search;
+                background-color: var(--bk-color-search);
                 color: var(--color-search-font);
                 font-size: 24px;
             }
@@ -392,14 +391,14 @@ a{
 //Gradients
 //gradient background for Logo
 .gradient-bkgr {
-    background: linear-gradient(190deg, #191970, #ffd706, #cc0f23);
+    background: linear-gradient(190deg, #114AB1, #6793AC, #E4580B);
     background-size: 180% 180%;
     animation: gradient-animation 18s ease infinite;
 }
 
   //gradient background for side navbar
   .gradient-navbar {
-    background: linear-gradient(270deg, #f43a02, #ffd706, #fc8107);
+    background: linear-gradient(190deg, #114AB1, lightgrey, #cddbdb);
     background-size: 180% 180%;
     animation: gradient-animation 18s ease infinite;
   }
